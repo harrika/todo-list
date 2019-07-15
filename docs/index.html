@@ -20,7 +20,16 @@
   <h4><span style="color: #D1D1D1">the</span> toDo <span style="color: #33C3F0;">list</span></h4>
     <hr>
     <div class="row">
-       <div class="seven columns">Eleven</div>
+       <div class="seven columns">
+        <label for="task">Create new project: </label>
+        <input class="u-full-width" placeholder=" project name" id="proj">
+
+       <label for="task">Select project: </label>
+       <button class="button-primary">project 1</button>
+       <button class="button-primary">project 2</button>
+       <button class="button-primary">project 3</button>
+       <button class="button-primary">project 4</button>
+     </div>
 
        <div class="five columns">
         <form>
@@ -41,10 +50,15 @@
           <input class="button-primary" type="submit" value="Submit">
           </form>
 
-     </div> <!-- end five columns -->
-        
-
+     </div> <!-- end five columns --> 
   </div><!-- end row-->
+  <hr id="two">
+
+  <ul id="taskelem">
+    
+  </ul>
+
+
   </div><!-- end container-->
 
 <script src="main.js"></script>
