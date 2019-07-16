@@ -1,0 +1,16 @@
+body {
+	margin-top: 20px;
+	background-color: #eff5f9;
+}
+
+hr {
+	height:1px;
+	border:none;
+	color: #33C3F0;
+	background-color: #33C3F0;
+}
+
+hr#two {
+	height: 2px;
+}
+
