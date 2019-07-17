@@ -10,7 +10,7 @@ hr {
 }
 
 hr#two {
-	height: 2px;
+	height: 4px;
 }
 li {
 	padding: 5px;
@@ -20,9 +20,22 @@ li:hover {
 	background-color: #deeef2;
 }
 li button {
-	color: white;       
+	color: #33C3F0;
    }
 li button:hover {
        color: red;       
    }
    
+button#project2 {
+	background-color: #d16fd8;
+}
+button#project3 {
+	background-color: #65d083;
+}
+
+#adder:hover {
+	background-color: #b1e0ee;
+	color: #fff;
+}
+
+
