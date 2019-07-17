@@ -4,19 +4,46 @@ class taskController {
 	constructor(taskelem) {
 		this.taskelem = taskelem;
 		this.tasklist = [];
+		this.showlist = [];
 		this.tid = 0;
-
+		this.projkt = 'one';
 	}
 
-	update(proj) {
+	setprojkt(c) {
+		this.projkt = c;
+		if (this.projkt == 'one') {
+			this.showlist = this.tasklist.filter(chkrange1);
+		}
+		else if (this.projkt == 'two') {
+			this.showlist = this.tasklist.filter(chkrange2);
+		}
+		else if (this.projkt == 'three') {
+			this.showlist = this.tasklist.filter(chkrange3);
+		}else{
+			this.showlist = this.tasklist;
+		}
+
+		function chkrange1(x) {
+			return x.taskid<1000;
+		}
+		function chkrange2(x) {
+			return ((x.taskid>=1000)&&(x.taskid<2000));
+		}
+		function chkrange3(x) {
+			return x.taskid>=2000;
+		}
+		this.update();
+	}
+
+
+	update() {
 		while (this.taskelem.firstChild) {
 			this.taskelem.removeChild(this.taskelem.firstChild);
 		}
 
-		this.tasklist.forEach(tskit => {
+		this.showlist.forEach(tskit => {
 			this.taskelem.appendChild(this.createElem(tskit));
-		});
-
+		});		
 	}
 
 	add(task) {
@@ -31,8 +58,7 @@ class taskController {
 
 	createElem(tsk) {
 		var litem = document.createElement('li');
-		litem.innerHTML = `
-			<span>${tsk.taskid}</span>
+		litem.innerHTML = `			
 			<span>${tsk.title}..</span>
 			<span>Description: ${tsk.description}</span>
 			<span>Due DATE: ${tsk.duedate}</span>
@@ -49,8 +75,8 @@ class taskController {
 			this.remove(ee);
 		}
 	}
-	
-
 } 
 
 export {taskController}
+
+// <span>${tsk.taskid}</span>

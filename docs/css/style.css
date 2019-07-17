@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
 body {
 	margin-top: 20px;
 	background-color: #eff5f9;
+	font-family: 'Montserrat', sans-serif;
 }
 hr {
 	height:1px;
@@ -14,7 +17,7 @@ hr#two {
 }
 li {
 	padding: 5px;
-	background-color: #d3ebf2;
+	background-color: #d3ebf2;	
 }
 li:hover {
 	background-color: #deeef2;
@@ -37,5 +40,9 @@ button#project3 {
 	background-color: #b1e0ee;
 	color: #fff;
 }
+ul {
+  list-style-type: none; 
+}
+
 
 
