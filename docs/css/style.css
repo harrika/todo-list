@@ -2,7 +2,6 @@ body {
 	margin-top: 20px;
 	background-color: #eff5f9;
 }
-
 hr {
 	height:1px;
 	border:none;
@@ -13,4 +12,17 @@ hr {
 hr#two {
 	height: 2px;
 }
-
+li {
+	padding: 5px;
+	background-color: #d3ebf2;
+}
+li:hover {
+	background-color: #deeef2;
+}
+li button {
+	color: white;       
+   }
+li button:hover {
+       color: red;       
+   }
+   

@@ -9,8 +9,7 @@
     "start": "nodemon -e js,css,html -x \"npm run build\" --ignore docs/"
   },
   "keywords": [
-    "todo",
-    "oop"
+    "todo"
   ],
   "author": "Kirya Henry Mukomba",
   "license": "ISC",

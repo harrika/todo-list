@@ -1,19 +1,43 @@
-var iid = 0;
+import {taskController} from './controller.js';
+import {Task} from './task.js';
+
+var iid=0
+var master = [];
 const taskelem = document.getElementById('taskelem');
 const taskcontroll  = new taskController(taskelem);
 document.querySelector('#adder').addEventListener('click', addtask);
 
-function  xell() {
-  // alert('howdy');
-  taskcontroll.delltask(1);
+document.querySelector('#project1').addEventListener('click', chngstart);
+document.querySelector('#project2').addEventListener('click', chngstart1);
+document.querySelector('#project3').addEventListener('click', chngstart2);
+
+function chngstart() {
+	if !master.includes(0) {
+		master.push(0)
+	}
+	iid = Math.max(...master.filter(x => x < 1000));
 }
 
-taskelem.querySelector('#delta').addEventListener('click', xell);
+function chngstart1() {
+	if !master.includes(1000) {
+		master.push(1000)
+	}
+	iid = Math.max(...master.filter(x => (x >= 1000)&&(x < 2000)));
+}
 
-// document.querySelector('#delta').addEventListener('DOMContentLoaded', (click) => {
-    // xell;
-// });
+function chngstart2() {
+	if !master.includes(2000) {
+		master.push(2000)
+	}
+	iid = Math.max(...master.filter(x => x >= 2000));
+}
 
+var bigdiv = document.querySelector('ul');
+bigdiv.addEventListener('click', function(event){
+		if(event.target.tagName === "BUTTON") {	
+			taskcontroll.delltask(Number(event.target.id));
+		}
+	});
 
 //on clicking SUBMIT button#adder --> calls addtask()
 function addtask(e) {
@@ -25,80 +49,7 @@ function addtask(e) {
 	var taskid = iid++;		
 	var newtask  = new Task(ttitle, tdesc, tddate, tprity, taskid);
 	taskcontroll.add(newtask);
+	master.push(taskid);
+	// console.log(master);
 }	
 
-
-//=====end main =================================================================>
-
-class taskController {
-	constructor(taskelem) {
-		this.taskelem = taskelem;
-		this.tasklist = [];
-		this.tid = 0;
-
-	}
-
-	update(proj) {
-		while (this.taskelem.firstChild) {
-			this.taskelem.removeChild(this.taskelem.firstChild);
-		}
-
-		this.tasklist.forEach(tskit => {
-			this.taskelem.appendChild(this.createElem(tskit));
-		});
-
-	}
-
-	add(task) {
-		this.tasklist.push(task);
-		this.update()
-	}
-
-	remove(i) {
-		this.tasklist.splice(i,1);
-		this.update();
-	}
-
-	createElem(tsk) {
-		var litem = document.createElement('li');
-		litem.innerHTML = `
-			<span>${tsk.title}</span>
-			<span>${tsk.description}</span>
-			<span>${tsk.duedate}</span>
-			<span>${tsk.priority}</span>
-			<span><button id = "delta" >Delete</button></span>
-			`;			
-		 return litem;
-	}
-
-	delltask(drowid) {
-		let ee = this.tasklist.findIndex(tas => tas == drowid); 
-		this.remove(ee);
-	}
-	
-
-} //======end taskController===============================================
-
-// function dell(taskrowid) {
-// 	alert('wanji?')
-// 	taskcontroll.delltask(taskrowid);
-// }
-
-// function xell() {
-// 	alert('me dell');
-// }
-
-
-
-
-class Task {
-	constructor(title, description, duedate, priority, taskid) {
-		this.title = title;
-		this.description = description;
-		this.duedate = duedate;
-		this.priority = priority;
-		this.taskid = taskid;
-		}
-}
-
-// <span><input type="button" onclick="dell(${tsk.taskid})" value="delete"> </span>

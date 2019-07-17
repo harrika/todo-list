@@ -25,10 +25,9 @@
         <input placeholder=" project name" id="proj">
 
        <label for="task">Select project: </label>
-       <button class="button-primary">project 1</button>
-       <button class="button-primary">project 2</button>
-       <button class="button-primary">project 3</button>
-       <button class="button-primary">project 4</button>
+       <button class="button-primary" id="project1">project 1</button>
+       <button class="button-primary" id="project2">project 2</button>
+       <button class="button-primary" id="project3">project 3</button>
      </div>
 
        <div class="five columns">
@@ -41,12 +40,12 @@
           <input class="u-full-width" placeholder=" Description" id="desc">
           <input class="u-full-width" placeholder=" Due Date" id="ddate">
 
+          <label for="task">Priority: </label>
                 <select id="prity">
-                  <option value="high">High</option>
-                  <option value="medium">Medium priority</option>
-                  <option value="low">Low priority</option>
+                  <option value="HIGH">HIGH</option>
+                  <option value="MEDIUM">MEDIUM</option>
+                  <option value="LOW">LOW</option>
                 </select>
-
           <input class="button-primary" type="submit" value="Submit" id="adder">
           </form>
 
@@ -61,7 +60,6 @@
 
   </div><!-- end container-->
 <script src="main.js"></script>
-
 </body>
 </html>
 
